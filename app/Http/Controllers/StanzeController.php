@@ -31,4 +31,23 @@ class StanzeController extends Controller
 
         return view('show', compact('stanza'));
     }
+
+    public function create(){
+
+        // la route che chiama questa funzione semplicemente verrà restituita la pagina con il form per creare una nuova stanza
+        return view('create');
+    }
+
+    public function store( Request $request){
+
+        // dd($request);
+
+        $data = $request -> all();
+
+        // dd($data);
+
+        $stanza = Stanza::create($data);
+
+        return redirect() -> route('stanze-index');
+    }
 }

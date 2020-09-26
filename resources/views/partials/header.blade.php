@@ -6,5 +6,9 @@
             Room List
         </a>
         </li>
+        <li><a href=" {{ route('stanza-create-form') }} ">
+            Create Room
+        </a>
+        </li>
     </ul>
 </header>
