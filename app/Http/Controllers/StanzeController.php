@@ -38,16 +38,16 @@ class StanzeController extends Controller
         return view('create');
     }
 
-    public function store( Request $request){
+    public function store( Request $request){ // Request è una classe di default di laravel. nella variabile $request (questa la puoi chiamare come vuoi ma da best practice meglio chiamarla $request) viene creato un oggetto contenete tantissimi dati tra cui la maggior parte serve a laravel. tra questi contiene anche i dati compilati dall'utente nel form
+        // dd($request); 
+        // NOTE: dd() è una funzione che stampa in pagina l'argomento che gli passi. In questo caso $request. è una funzione utile in fase di debug tipo var_dump
 
-        // dd($request);
-
-        $data = $request -> all();
+        $data = $request -> all(); // l'oggetto $request che contiene molti dati (la maggior parte dei quali utili a laravel ma non significativi per il nostro obbiettivo) la funzione all() crea un oggetto con i dati del form più un altro paio di attributi che non serviranno.
 
         // dd($data);
 
-        $stanza = Stanza::create($data);
+        $stanza = Stanza::create($data); // Stanza::create() richiama nell'oggetto del model Stanza il metodo create che crea un nuovo report nel model (e quindi poi nel database mysql). gli passiamo la variabile $data che contiene i dati del form. di questi dati verranno presi solo quelli alle chiavi definite nella variabile $fillable del model.
 
-        return redirect() -> route('stanze-index');
+        return redirect() -> route('stanze-index'); // redirect richiama la route con name 'stanze-index' quindi dopo aver inviato il form con submit viene richimata la view con la lista delle stanze
     }
 }
