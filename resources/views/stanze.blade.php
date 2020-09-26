@@ -10,7 +10,8 @@
         <ul>
             @foreach ($stanze as $stanza)
                 <li>
-                    <a href="{{ route('stanza-show', $stanza -> id)}}">
+                    {{-- cliccando sul li ci sarà un link che punta alla route stanza-show. passando al controller l'id della stanza. il controller cercherà nel model delle stanze la stanza con quell'id e passerà alla view show.blade.php i dati di quella specifica stanza con quell'id --}}
+                    <a href="{{ route('stanza-show', $stanza -> id)}}"> 
                         <strong>Room Number:</strong> {{ $stanza -> room_number}}
                     </a>
                 </li>
